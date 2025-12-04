@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dress Up Challenge</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <h1>Dress Up Challenge</h1>
+    <p id="instruction">Put a yellow shirt on Sara.</p>
+
+    <div class="game-area">
+        <div class="character" id="sara">
+            <img src="../assets/characters/sara.png" alt="Sara">
+        </div>
+        <div class="character" id="ali">
+            <img src="../assets/characters/ali.png" alt="Ali">
+        </div>
+    </div>
+
+    <div class="clothes-area">
+        <img src="../assets/clothes/yellow-shirt.png" class="draggable" draggable="true" data-name="yellow-shirt">
+        <img src="../assets/clothes/black-hat.png" class="draggable" draggable="true" data-name="black-hat">
+        <img src="../assets/clothes/red-jacket.png" class="draggable" draggable="true" data-name="red-jacket">
+    </div>
+
+    <p id="feedback"></p>
+
+    <script src="../script/script.js"></script>
+</body>
+</html>
