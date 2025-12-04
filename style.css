@@ -35,4 +35,29 @@ body {
     width: 80px;
     cursor: grab;
 }
+.character img.clothing {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none; /* اجازه نمی‌دهد لباس دوباره کشیده شود */
+}
+
+.character .hat {
+    top: -20px;
+    width: 50%;
+    left: 25%;
+}
+
+.character .shirt {
+    top: 50px;
+    width: 90%;
+    left: 5%;
+}
+
+.character .jacket {
+    top: 100px;
+    width: 90%;
+    left: 5%;
+}
 
