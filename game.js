@@ -44,11 +44,20 @@ characters.forEach(char => {
         const clothing = e.dataTransfer.getData('text');
         const task = tasks[currentTaskIndex];
 
-        if (char.id === task.character && clothing === task.clothing) {
-            feedback.textContent = "Great! Good job!";
-            updateScore(5);  // هر پاسخ درست ۵ امتیاز
+       if (char.id === task.character && clothing === task.clothing) {
+    feedback.textContent = "Great! Good job!";
+    feedback.classList.remove('wrong');
+    feedback.classList.add('correct');
+    correctSound.play();
+    updateScore(5);
+    ...
+} else {
+    feedback.textContent = "Try again!";
+    feedback.classList.remove('correct');
+    feedback.classList.add('wrong');
+    wrongSound.play();
+}
 
-            correctSound.play();
 
             const img = document.createElement('img');
             img.src = `../assets/clothes/${clothing}.png`;
