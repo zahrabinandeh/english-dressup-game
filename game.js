@@ -25,35 +25,42 @@ draggables.forEach(item => {
     });
 });
 
+const correctSound = new Audio('../assets/sound/correct.mp3');
+const wrongSound = new Audio('../assets/sound/wrong.mp3');
+
 characters.forEach(char => {
-    char.addEventListener('dragover', e => {
-        e.preventDefault();
-    });
+    char.addEventListener('dragover', e => e.preventDefault());
 
     char.addEventListener('drop', e => {
         e.preventDefault();
         const clothing = e.dataTransfer.getData('text');
         const task = tasks[currentTaskIndex];
 
-       if (char.id === task.character && clothing === task.clothing) {
-    feedback.textContent = "Great! Good job!";
+        if (char.id === task.character && clothing === task.clothing) {
+            feedback.textContent = "Great! Good job!";
+            correctSound.play();
 
-    const img = document.createElement('img');
-    img.src = `../assets/clothes/${clothing}.png`;
-    img.classList.add('clothing');
+            const img = document.createElement('img');
+            img.src = `../assets/clothes/${clothing}.png`;
+            img.classList.add('clothing');
 
-    // اضافه کردن کلاس مخصوص لباس
-    if (clothing.includes('shirt')) img.classList.add('shirt');
-    if (clothing.includes('hat')) img.classList.add('hat');
-    if (clothing.includes('jacket')) img.classList.add('jacket');
+            // اضافه کردن کلاس مخصوص لباس برای موقعیت دقیق
+            if (clothing.includes('shirt')) img.classList.add('shirt');
+            if (clothing.includes('hat')) img.classList.add('hat');
+            if (clothing.includes('jacket')) img.classList.add('jacket');
 
-    char.appendChild(img);
+            char.appendChild(img);
 
-    currentTaskIndex++;
-    if (currentTaskIndex < tasks.length) {
-        setTimeout(loadTask, 1000);
-    } else {
-        instruction.textContent = "🎉 All tasks completed!";
-    }
-}
+            currentTaskIndex++;
+            if (currentTaskIndex < tasks.length) {
+                setTimeout(loadTask, 1000);
+            } else {
+                instruction.textContent = "🎉 All tasks completed!";
+            }
 
+        } else {
+            feedback.textContent = "Try again!";
+            wrongSound.play();
+        }
+    });
+});
