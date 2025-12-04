@@ -1,3 +1,5 @@
+const correctSound = new Audio('../assets/sound/correct.mp3');
+const wrongSound = new Audio('../assets/sound/wrong.mp3');
 const draggables = document.querySelectorAll('.draggable');
 const characters = document.querySelectorAll('.character');
 const feedback = document.getElementById('feedback');
