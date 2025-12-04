@@ -60,4 +60,40 @@ body {
     width: 90%;
     left: 5%;
 }
+.scrollable {
+    max-width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+.scrollable img {
+    display: inline-block;
+    margin-right: 10px;
+}
+@keyframes correctAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongAnimation {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+#feedback.correct {
+    color: green;
+    animation: correctAnimation 0.5s ease;
+}
+
+#feedback.wrong {
+    color: red;
+    animation: wrongAnimation 0.5s ease;
+}
 
