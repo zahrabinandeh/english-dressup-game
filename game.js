@@ -1,3 +1,11 @@
+const scoreDisplay = document.getElementById('score');
+let score = 0;
+
+function updateScore(points) {
+    score += points;
+    scoreDisplay.textContent = "Score: " + score;
+}
+
 const correctSound = new Audio('../assets/sound/correct.mp3');
 const wrongSound = new Audio('../assets/sound/wrong.mp3');
 const draggables = document.querySelectorAll('.draggable');
