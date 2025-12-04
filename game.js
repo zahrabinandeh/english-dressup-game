@@ -33,28 +33,25 @@ characters.forEach(char => {
         const clothing = e.dataTransfer.getData('text');
         const task = tasks[currentTaskIndex];
 
-        if (char.id === task.character && clothing === task.clothing) {
-            feedback.textContent = "Great! Good job!";
-            const img = document.createElement('img');
-            img.src = `../assets/clothes/${clothing}.png`;
-            img.style.position = "absolute";
-            img.style.top = "0";
-            img.style.left = "0";
-            img.style.width = "100%";
-            char.appendChild(img);
+       if (char.id === task.character && clothing === task.clothing) {
+    feedback.textContent = "Great! Good job!";
 
-            currentTaskIndex++;
-            if (currentTaskIndex < tasks.length) {
-                setTimeout(loadTask, 1000);
-            } else {
-                instruction.textContent = "🎉 All tasks completed!";
-            }
+    const img = document.createElement('img');
+    img.src = `../assets/clothes/${clothing}.png`;
+    img.classList.add('clothing');
 
-        } else {
-            feedback.textContent = "Try again!";
-        }
-    });
-});
+    // اضافه کردن کلاس مخصوص لباس
+    if (clothing.includes('shirt')) img.classList.add('shirt');
+    if (clothing.includes('hat')) img.classList.add('hat');
+    if (clothing.includes('jacket')) img.classList.add('jacket');
 
-loadTask();
+    char.appendChild(img);
+
+    currentTaskIndex++;
+    if (currentTaskIndex < tasks.length) {
+        setTimeout(loadTask, 1000);
+    } else {
+        instruction.textContent = "🎉 All tasks completed!";
+    }
+}
 
