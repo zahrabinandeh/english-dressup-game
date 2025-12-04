@@ -46,6 +46,8 @@ characters.forEach(char => {
 
         if (char.id === task.character && clothing === task.clothing) {
             feedback.textContent = "Great! Good job!";
+            updateScore(5);  // هر پاسخ درست ۵ امتیاز
+
             correctSound.play();
 
             const img = document.createElement('img');
